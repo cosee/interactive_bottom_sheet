@@ -1,0 +1,27 @@
+name: interactive_bottom_sheet_example
+description: Demonstrates how to use the interactive_bottom_sheet plugin.
+
+environment:
+  sdk: '>=2.18.5 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  interactive_bottom_sheet:
+    path: ../
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+  flutter_lints: ^2.0.0
+
+
+flutter:
+
+
+  uses-material-design: true
+
