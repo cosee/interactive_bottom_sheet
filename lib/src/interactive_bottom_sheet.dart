@@ -4,13 +4,21 @@ import 'package:interactive_bottom_sheet/src/options.dart';
 
 /// The InteractiveBottomSheet.
 class InteractiveBottomSheet extends StatefulWidget {
-  /// Should be placed inside the bottomSheet property of a Scaffold
-  const InteractiveBottomSheet({super.key, required this.options, this.child});
+  /// Should be placed inside the bottomSheet property of a Scaffold.
+  const InteractiveBottomSheet({
+    super.key,
+    this.options = const InteractiveBottomSheetOptions(),
+    this.draggableAreaOptions = const DraggableAreaOptions(),
+    this.child,
+  });
 
-  /// Customization options
+  /// Customization options for the [InteractiveBottomSheet]
   final InteractiveBottomSheetOptions options;
 
-  /// Optional Widget placed inside the BottomSheet
+  /// Customization options for the DraggableArea
+  final DraggableAreaOptions draggableAreaOptions;
+
+  /// Optional Widget placed inside the [InteractiveBottomSheet]
   final Widget? child;
 
   @override
@@ -19,25 +27,44 @@ class InteractiveBottomSheet extends StatefulWidget {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(
-      DiagnosticsProperty<InteractiveBottomSheetOptions>(
-        'options',
-        options,
-      ),
-    );
+    properties
+      ..add(
+        DiagnosticsProperty<InteractiveBottomSheetOptions>(
+          'options',
+          options,
+        ),
+      )
+      ..add(
+        DiagnosticsProperty<DraggableAreaOptions>(
+          'draggableAreaOptions',
+          draggableAreaOptions,
+        ),
+      );
   }
 }
 
 class _InteractiveBottomSheetState extends State<InteractiveBottomSheet> {
-  final DraggableScrollableController _draggableScrollableController =
-      DraggableScrollableController();
+  late DraggableScrollableController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = DraggableScrollableController();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
+        color: widget.options.backgroundColor,
         borderRadius: BorderRadius.vertical(
-          top: Radius.circular(widget.options.topBorderRadius),
+          top: Radius.circular(widget.draggableAreaOptions.topBorderRadius),
         ),
       ),
       child: DraggableScrollableSheet(
@@ -46,17 +73,21 @@ class _InteractiveBottomSheetState extends State<InteractiveBottomSheet> {
         initialChildSize: widget.options.initialSize,
         maxChildSize: widget.options.maxSize,
         snapSizes: widget.options.snapList,
-        controller: _draggableScrollableController,
+        controller: _controller,
         builder: (context, scrollController) {
-          return Column(
-            children: [
+          return CustomScrollView(
+            controller: scrollController,
+            slivers: [
               if (widget.options.showDraggableArea)
-                _InteractiveBottomSheetDraggableArea(widget: widget),
-              Expanded(
-                child: SingleChildScrollView(
-                  controller: scrollController,
-                  primary: false,
-                  child: widget.child ?? const SizedBox.shrink(),
+                SliverPersistentHeader(
+                  pinned: true,
+                  delegate: _InteractiveBottomSheetDraggableArea(
+                    options: widget.draggableAreaOptions,
+                  ),
+                ),
+              SliverIgnorePointer(
+                sliver: SliverToBoxAdapter(
+                  child: widget.child,
                 ),
               ),
             ],
@@ -67,20 +98,21 @@ class _InteractiveBottomSheetState extends State<InteractiveBottomSheet> {
   }
 }
 
-class _InteractiveBottomSheetDraggableArea extends StatelessWidget {
+class _InteractiveBottomSheetDraggableArea
+    extends SliverPersistentHeaderDelegate {
   const _InteractiveBottomSheetDraggableArea({
-    required this.widget,
+    required this.options,
   });
 
-  final InteractiveBottomSheet widget;
+  final DraggableAreaOptions options;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, _, __) {
     return Container(
       decoration: BoxDecoration(
-        color: widget.options.draggableAreaColor,
+        color: options.draggableAreaColor,
         borderRadius: BorderRadius.vertical(
-          top: Radius.circular(widget.options.topBorderRadius),
+          top: Radius.circular(options.topBorderRadius),
         ),
         boxShadow: const [
           BoxShadow(
@@ -89,16 +121,16 @@ class _InteractiveBottomSheetDraggableArea extends StatelessWidget {
           ),
         ],
       ),
-      height: widget.options.draggableAreaHeight,
+      height: options.draggableAreaHeight,
       child: Center(
         child: Container(
-          height: widget.options.draggableAreaIndicatorHeight,
-          width: widget.options.draggableAreaIndicatorWidth,
+          height: options.draggableAreaIndicatorHeight,
+          width: options.draggableAreaIndicatorWidth,
           decoration: BoxDecoration(
-            color: widget.options.draggableAreaIndicatorColor,
+            color: options.draggableAreaIndicatorColor,
             borderRadius: BorderRadius.all(
               Radius.circular(
-                widget.options.draggableAreaIndicatorRadius,
+                options.draggableAreaIndicatorRadius,
               ),
             ),
           ),
@@ -106,4 +138,14 @@ class _InteractiveBottomSheetDraggableArea extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  double get maxExtent => options.draggableAreaHeight;
+
+  @override
+  double get minExtent => options.draggableAreaHeight;
+
+  @override
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) =>
+      true;
 }

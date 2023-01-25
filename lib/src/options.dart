@@ -5,27 +5,16 @@ class InteractiveBottomSheetOptions {
   ///  Contains all options for customization of the InteractiveBottomSheet
   const InteractiveBottomSheetOptions({
     this.backgroundColor = Colors.white,
-    this.topBorderRadius = 0.0,
     this.expand = false,
     this.snap = true,
     this.maxSize = 1,
     this.initialSize = 0.25,
     this.snapList = const [0.5],
     this.showDraggableArea = true,
-    this.draggableAreaHeight = 50.0,
-    this.draggableAreaColor = Colors.white,
-    this.draggableAreaIndicatorColor = Colors.black,
-    this.draggableAreaIndicatorWidth = 60.0,
-    this.draggableAreaIndicatorHeight = 5.0,
-    this.draggableAreaIndicatorRadius = 5.0,
   });
 
   /// The background color of the whole widget
   final Color backgroundColor;
-
-  /// Top Radius of the bottom sheet. To see it, a transparent background color
-  /// for the bottomSheetTheme is necessary
-  final double topBorderRadius;
 
   /// Decides, if the sheet snaps to the nearest position declared in snapList
   /// when if the user stops dragging
@@ -47,6 +36,24 @@ class InteractiveBottomSheetOptions {
 
   /// Decides if the DraggableArea should be shown
   final bool showDraggableArea;
+}
+
+/// Options class for the DraggableArea.
+class DraggableAreaOptions {
+  ///  Contains all options for customization of the DraggableArea
+  const DraggableAreaOptions({
+    this.topBorderRadius = 0.0,
+    this.draggableAreaHeight = 50.0,
+    this.draggableAreaColor = Colors.white,
+    this.draggableAreaIndicatorColor = Colors.black,
+    this.draggableAreaIndicatorWidth = 60.0,
+    this.draggableAreaIndicatorHeight = 5.0,
+    this.draggableAreaIndicatorRadius = 5.0,
+  });
+
+  /// Top Radius of the bottom sheet. To see it, a transparent background color
+  /// for the bottomSheetTheme is necessary
+  final double topBorderRadius;
 
   /// The height of the DraggableArea
   final double draggableAreaHeight;

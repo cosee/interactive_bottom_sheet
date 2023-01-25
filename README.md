@@ -1,15 +1,7 @@
 # Interactive Bottom Sheet
 
-<a href="https://www2.cosee.biz/">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://www2.cosee.biz/static/media/coseeLogoDark.4db59c01ddca8e9b2481.png">
-      <img src="https://www2.cosee.biz/static/media/coseeLogoLight.f5c13d3df599ab20306b.png" height="100" alt="cosee GmbH" />
-    </picture>
-</a>
-<br>
-<br>
-
 [![package publisher][publisher_badge]][publisher_badge_link]
+[![style][style_badge]][style_link]
 [![license][license_badge]][license_link]
 
 A customizable interactive bottom sheet, which lets you interact with the screen behind it
@@ -18,9 +10,9 @@ A customizable interactive bottom sheet, which lets you interact with the screen
 
 * Easy to use
 * Customizable colors
-*Customizable DraggableArea
-*Customizable heights and widths of different parts of the sheet
-*Possibility to declare snap points
+* Customizable DraggableArea
+* Customizable heights and widths of different parts of the sheet
+* Possibility to declare snap points
 
 ## Usage
 
@@ -85,17 +77,13 @@ Theme(
     ),
   ),
   child: const Scaffold(
-  bottomSheet: const InteractiveBottomSheet(
-    options: InteractiveBottomSheetOptions(),
-    child: Text(
-       'Lorem ipsum dolor sit amet.'
-      ),
+    bottomSheet: const InteractiveBottomSheet(
+      options: InteractiveBottomSheetOptions(),
+      child: Text('Lorem ipsum dolor sit amet.'),
     ),
   ),
 );
 ```
-
-[cosee]: https://www2.cosee.biz/
 
 [publisher_badge]: https://img.shields.io/pub/publisher/cosee_lints.svg
 
@@ -104,3 +92,7 @@ Theme(
 [license_badge]: https://img.shields.io/github/license/cosee/cosee_lints
 
 [license_link]: https://github.com/cosee/interactive_bottom_sheet/blob/main/LICENSE
+
+[style_badge]: https://img.shields.io/badge/style-cosee__lints-brightgreen
+
+[style_link]: https://pub.dev/packages/cosee_lints
