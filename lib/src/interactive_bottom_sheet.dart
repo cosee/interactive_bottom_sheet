@@ -114,12 +114,7 @@ class _InteractiveBottomSheetDraggableArea
         borderRadius: BorderRadius.vertical(
           top: Radius.circular(options.topBorderRadius),
         ),
-        boxShadow: const [
-          BoxShadow(
-            color: Colors.grey,
-            blurRadius: 1,
-          ),
-        ],
+        boxShadow: options.shadows,
       ),
       height: options.draggableAreaHeight,
       child: Center(

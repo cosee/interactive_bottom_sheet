@@ -49,6 +49,7 @@ class DraggableAreaOptions {
     this.draggableAreaIndicatorWidth = 60.0,
     this.draggableAreaIndicatorHeight = 5.0,
     this.draggableAreaIndicatorRadius = 5.0,
+    this.shadows = const [BoxShadow(color: Colors.grey, blurRadius: 1)],
   });
 
   /// Top Radius of the bottom sheet. To see it, a transparent background color
@@ -72,4 +73,7 @@ class DraggableAreaOptions {
 
   /// The top radius of the DraggableAreaIndicator
   final double draggableAreaIndicatorRadius;
+
+  /// Defines the shadow beneath the DraggableArea
+  final List<BoxShadow> shadows;
 }
