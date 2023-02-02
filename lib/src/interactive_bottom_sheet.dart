@@ -75,19 +75,24 @@ class _InteractiveBottomSheetState extends State<InteractiveBottomSheet> {
         snapSizes: widget.options.snapList,
         controller: _controller,
         builder: (context, scrollController) {
-          return CustomScrollView(
-            controller: scrollController,
-            slivers: [
-              if (widget.options.showDraggableArea)
-                SliverPersistentHeader(
-                  pinned: true,
-                  delegate: _InteractiveBottomSheetDraggableArea(
-                    options: widget.draggableAreaOptions,
-                  ),
+          return Stack(
+            children: [
+              Container(
+                padding: EdgeInsets.only(
+                  top: widget.draggableAreaOptions.draggableAreaHeight,
                 ),
-              SliverIgnorePointer(
-                sliver: SliverToBoxAdapter(
-                  child: widget.child,
+                child: CustomScrollView(
+                  slivers: [
+                    SliverToBoxAdapter(
+                      child: widget.child,
+                    ),
+                  ],
+                ),
+              ),
+              SingleChildScrollView(
+                controller: scrollController,
+                child: _InteractiveBottomSheetDraggableArea(
+                  options: widget.draggableAreaOptions,
                 ),
               ),
             ],
@@ -98,8 +103,7 @@ class _InteractiveBottomSheetState extends State<InteractiveBottomSheet> {
   }
 }
 
-class _InteractiveBottomSheetDraggableArea
-    extends SliverPersistentHeaderDelegate {
+class _InteractiveBottomSheetDraggableArea extends StatelessWidget {
   const _InteractiveBottomSheetDraggableArea({
     required this.options,
   });
@@ -107,7 +111,9 @@ class _InteractiveBottomSheetDraggableArea
   final DraggableAreaOptions options;
 
   @override
-  Widget build(BuildContext context, _, __) {
+  Widget build(
+    BuildContext context,
+  ) {
     return Container(
       decoration: BoxDecoration(
         color: options.draggableAreaColor,
@@ -135,12 +141,9 @@ class _InteractiveBottomSheetDraggableArea
   }
 
   @override
-  double get maxExtent => options.draggableAreaHeight;
-
-  @override
-  double get minExtent => options.draggableAreaHeight;
-
-  @override
-  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) =>
-      true;
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty<DraggableAreaOptions>('options', options));
+  }
 }
