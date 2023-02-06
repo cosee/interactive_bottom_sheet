@@ -90,6 +90,7 @@ class _InteractiveBottomSheetState extends State<InteractiveBottomSheet> {
                 ),
               ),
               SingleChildScrollView(
+                physics: const ClampingScrollPhysics(),
                 controller: scrollController,
                 child: _InteractiveBottomSheetDraggableArea(
                   options: widget.draggableAreaOptions,
