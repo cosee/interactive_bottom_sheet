@@ -6,6 +6,8 @@
 
 A customizable interactive bottom sheet, which lets you interact with the screen behind it
 
+![Preview example](example/screenshots/example.gif "Example")
+
 ## Features
 
 * Easy to use
