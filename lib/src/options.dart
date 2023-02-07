@@ -10,7 +10,6 @@ class InteractiveBottomSheetOptions {
     this.maxSize = 1,
     this.initialSize = 0.25,
     this.snapList = const [0.5],
-    this.showDraggableArea = true,
   });
 
   /// The background color of the whole widget
@@ -33,9 +32,6 @@ class InteractiveBottomSheetOptions {
   /// If snap is true, the bottom sheets snaps to the nearest point declared
   /// in this list when the user stops dragging
   final List<double> snapList;
-
-  /// Decides if the DraggableArea should be shown
-  final bool showDraggableArea;
 }
 
 /// Options class for the DraggableArea.
