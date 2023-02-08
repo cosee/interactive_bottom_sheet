@@ -30,19 +30,19 @@ class CustomTheme {
   static const int _greenPrimaryValue = 0xFF4faf47;
 
   static const MaterialColor _yellow = MaterialColor(
-    _yellorimaryValue,
+    _yellowPrimaryValue,
     <int, Color>{
       50: Color(0xFFeaec80),
       100: Color(0xFFe5e866),
       200: Color(0xFFe1e44d),
       300: Color(0xFFdde033),
       400: Color(0xFFd8dc19),
-      500: Color(_yellorimaryValue),
+      500: Color(_yellowPrimaryValue),
       600: Color(0xFFbfc200),
       700: Color(0xFFaaad00),
       800: Color(0xFF949700),
       900: Color(0xFF7f8200),
     },
   );
-  static const int _yellorimaryValue = 0xFFd4d800;
+  static const int _yellowPrimaryValue = 0xFFd4d800;
 }

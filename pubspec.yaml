@@ -1,7 +1,7 @@
 name: interactive_bottom_sheet
 description: A customizable interactive bottom sheet, which lets you interact with the screen behind it.
 homepage: https://pub.dev/publishers/cosee.biz/packages
-version: 0.1.1
+version: 0.1.2
 repository: https://github.com/cosee/interactive_bottom_sheet/tree/main
 issue_tracker: https://github.com/cosee/interactive_bottom_sheet/issues
 
@@ -17,7 +17,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   cosee_lints: ^0.1.1
-  dart_code_metrics: ^5.5.0
+  dart_code_metrics: ^5.5.1
 
 flutter:
   uses-material-design: true
