@@ -1,10 +1,11 @@
 # Interactive Bottom Sheet
 
+[![pub package][pub_badge]][pub_badge_link]
 [![package publisher][publisher_badge]][publisher_badge_link]
 [![style][style_badge]][style_link]
 [![license][license_badge]][license_link]
 
-A customizable interactive bottom sheet, which lets you interact with the screen behind it
+A customizable interactive bottom sheet, which lets you interact with the screen behind it.
 
 ![Preview example](example/screenshots/example.gif "Example")
 
@@ -27,8 +28,8 @@ dependencies:
 
 Import it:
 
-  ```dart
-  import 'package:interactive_bottom_sheet/interactive_bottom_sheet.dart';
+```dart
+import 'package:interactive_bottom_sheet/interactive_bottom_sheet.dart';
 ```
 
 Example
@@ -48,31 +49,31 @@ Scaffold(
 
 ```dart
 Scaffold(
-        resizeToAvoidBottomInset: false,
-        bottomSheet: const Scaffold(
-          bottomSheet: InteractiveBottomSheet(
-            options: InteractiveBottomSheetOptions(
-              maxSize: 0.75,
-              backgroundColor: Colors.green,
-              snapList: [0.0, 0.25, 0.5],
-              draggableAreaOptions: DraggableAreaOptions(
-                topBorderRadius: 10,
-                height: 75,
-                backgroundColor: Colors.grey,
-                indicatorColor: Colors.grey,
-                indicatorWidth: 50,
-                indicatorHeight: 50,
-                indicatorRadius: 10,
-              ),
-            ),
-            child: Text('Lorem ipsum dolor sit amet.'),
-          ),
-        );
+  bottomSheet: const Scaffold(
+  bottomSheet: InteractiveBottomSheet(
+    options: InteractiveBottomSheetOptions(
+      maxSize: 0.75,
+      backgroundColor: Colors.green,
+      snapList: [0.25, 0.5],
+    ),
+    draggableAreaOptions: DraggableAreaOptions(
+      topBorderRadius: 10,
+      height: 75,
+      backgroundColor: Colors.grey,
+      indicatorColor: Colors.grey,
+      indicatorWidth: 50,
+      indicatorHeight: 50,
+      indicatorRadius: 10,
+      ),
+    ),
+    child: Text('Lorem ipsum dolor sit amet.'),
+  ),
+);
 ```
 
 ## Top Border Radius
 
-To get rounded Borders at the top of the sheet (usual for iOS) on the top side of the widget, it is necessary to overwrite the bottomSheetTheme.
+To get rounded Borders at the top of the sheet (usual for iOS) on the top side of the widget, it is necessary to overwrite the `bottomSheetTheme`.
 
 ```dart
 Theme(
@@ -82,13 +83,16 @@ Theme(
     ),
   ),
   child: const Scaffold(
-    bottomSheet: const InteractiveBottomSheet(
-      options: InteractiveBottomSheetOptions(),
+    bottomSheet: InteractiveBottomSheet(
       child: Text('Lorem ipsum dolor sit amet.'),
     ),
   ),
 );
 ```
+
+[pub_badge]: https://img.shields.io/pub/v/interactive_bottom_sheet.svg
+
+[pub_badge_link]: https://pub.dartlang.org/packages/interactive_bottom_sheet
 
 [publisher_badge]: https://img.shields.io/pub/publisher/cosee_lints.svg
 

@@ -19,7 +19,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: CustomTheme.theme(context),
       home: Scaffold(
-        resizeToAvoidBottomInset: false,
         bottomSheet: InteractiveBottomSheet(
           draggableAreaOptions: const DraggableAreaOptions(topBorderRadius: 10),
           child: Padding(

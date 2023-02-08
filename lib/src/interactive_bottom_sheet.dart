@@ -12,13 +12,13 @@ class InteractiveBottomSheet extends StatefulWidget {
     this.child,
   });
 
-  /// Customization options for the [InteractiveBottomSheet]
+  /// Customization options for the [InteractiveBottomSheet].
   final InteractiveBottomSheetOptions options;
 
-  /// Customization options for the DraggableArea
+  /// Customization options for the DraggableArea.
   final DraggableAreaOptions draggableAreaOptions;
 
-  /// Optional Widget placed inside the [InteractiveBottomSheet]
+  /// Optional Widget placed inside the [InteractiveBottomSheet].
   final Widget? child;
 
   @override
