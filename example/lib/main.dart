@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_lorem/flutter_lorem.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:interactive_bottom_sheet/interactive_bottom_sheet.dart';
 import 'package:interactive_bottom_sheet_example/theme.dart';
@@ -19,23 +20,14 @@ class MyApp extends StatelessWidget {
       theme: CustomTheme.theme(context),
       home: Scaffold(
         resizeToAvoidBottomInset: false,
-        bottomSheet: const Scaffold(
-          bottomSheet: InteractiveBottomSheet(
-            options: InteractiveBottomSheetOptions(
-              maxSize: 0.75,
-              backgroundColor: Colors.green,
-              snapList: [0.0, 0.25, 0.5],
-              draggableAreaOptions: DraggableAreaOptions(
-                topBorderRadius: 10,
-                height: 75,
-                backgroundColor: Colors.grey,
-                indicatorColor: Colors.grey,
-                indicatorWidth: 50,
-                indicatorHeight: 50,
-                indicatorRadius: 10,
-              ),
+        bottomSheet: InteractiveBottomSheet(
+          draggableAreaOptions: const DraggableAreaOptions(topBorderRadius: 10),
+          child: Padding(
+            padding: const EdgeInsets.all(15),
+            child: Text(
+              lorem(paragraphs: 4, words: 2000),
+              style: const TextStyle(fontSize: 20),
             ),
-            child: Text('Lorem ipsum dolor sit amet.'),
           ),
         ),
         appBar: AppBar(
