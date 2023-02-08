@@ -9,7 +9,7 @@ class InteractiveBottomSheetOptions {
     this.snap = true,
     this.maxSize = 1,
     this.initialSize = 0.25,
-    this.snapList = const [0.5å],
+    this.snapList = const [0.5],
   });
 
   /// The background color of the whole widget.
