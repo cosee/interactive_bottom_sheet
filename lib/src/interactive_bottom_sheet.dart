@@ -79,7 +79,7 @@ class _InteractiveBottomSheetState extends State<InteractiveBottomSheet> {
             children: [
               Container(
                 padding: EdgeInsets.only(
-                  top: widget.draggableAreaOptions.draggableAreaHeight,
+                  top: widget.draggableAreaOptions.height,
                 ),
                 child: CustomScrollView(
                   slivers: [
@@ -117,22 +117,22 @@ class _InteractiveBottomSheetDraggableArea extends StatelessWidget {
   ) {
     return Container(
       decoration: BoxDecoration(
-        color: options.draggableAreaColor,
+        color: options.backgroundColor,
         borderRadius: BorderRadius.vertical(
           top: Radius.circular(options.topBorderRadius),
         ),
         boxShadow: options.shadows,
       ),
-      height: options.draggableAreaHeight,
+      height: options.height,
       child: Center(
         child: Container(
-          height: options.draggableAreaIndicatorHeight,
-          width: options.draggableAreaIndicatorWidth,
+          height: options.indicatorHeight,
+          width: options.indicatorWidth,
           decoration: BoxDecoration(
-            color: options.draggableAreaIndicatorColor,
+            color: options.indicatorColor,
             borderRadius: BorderRadius.all(
               Radius.circular(
-                options.draggableAreaIndicatorRadius,
+                options.indicatorRadius,
               ),
             ),
           ),

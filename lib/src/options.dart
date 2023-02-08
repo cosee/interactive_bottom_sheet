@@ -10,6 +10,7 @@ class InteractiveBottomSheetOptions {
     this.maxSize = 1,
     this.initialSize = 0.25,
     this.snapList = const [0.5],
+    this.draggableAreaOptions = const DraggableAreaOptions(),
   });
 
   /// The background color of the whole widget
@@ -22,6 +23,10 @@ class InteractiveBottomSheetOptions {
   /// Decides, if the widget should expand to fill the available space in its
   /// parent or not.
   final bool expand;
+
+  /// Options to customize the DraggableArea above the content
+  /// of the InteractiveBottomSheet
+  final DraggableAreaOptions draggableAreaOptions;
 
   /// The initial height of the bottom sheet, goes from 0.0 to 1.0
   final double initialSize;
@@ -39,12 +44,12 @@ class DraggableAreaOptions {
   ///  Contains all options for customization of the DraggableArea
   const DraggableAreaOptions({
     this.topBorderRadius = 0.0,
-    this.draggableAreaHeight = 50.0,
-    this.draggableAreaColor = Colors.white,
-    this.draggableAreaIndicatorColor = Colors.black,
-    this.draggableAreaIndicatorWidth = 60.0,
-    this.draggableAreaIndicatorHeight = 5.0,
-    this.draggableAreaIndicatorRadius = 5.0,
+    this.height = 50.0,
+    this.backgroundColor = Colors.white,
+    this.indicatorColor = Colors.black,
+    this.indicatorWidth = 60.0,
+    this.indicatorHeight = 5.0,
+    this.indicatorRadius = 5.0,
     this.shadows = const [BoxShadow(color: Colors.grey, blurRadius: 1)],
   });
 
@@ -53,22 +58,22 @@ class DraggableAreaOptions {
   final double topBorderRadius;
 
   /// The height of the DraggableArea
-  final double draggableAreaHeight;
+  final double height;
 
   /// The color of the DraggableArea
-  final Color draggableAreaColor;
+  final Color backgroundColor;
 
-  /// The color of the DraggableAreaIndicator
-  final Color draggableAreaIndicatorColor;
+  /// The color of the Indicator
+  final Color indicatorColor;
 
-  /// The width of the DraggableAreaIndicator
-  final double draggableAreaIndicatorWidth;
+  /// The width of the Indicator
+  final double indicatorWidth;
 
-  /// The height of the DraggableAreaIndicator
-  final double draggableAreaIndicatorHeight;
+  /// The height of the Indicator
+  final double indicatorHeight;
 
-  /// The top radius of the DraggableAreaIndicator
-  final double draggableAreaIndicatorRadius;
+  /// The top radius of the Indicator
+  final double indicatorRadius;
 
   /// Defines the shadow beneath the DraggableArea
   final List<BoxShadow> shadows;

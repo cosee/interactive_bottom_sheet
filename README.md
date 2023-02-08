@@ -48,23 +48,26 @@ Scaffold(
 
 ```dart
 Scaffold(
-  bottomSheet: const InteractiveBottomSheet(
-    options: InteractiveBottomSheetOptions(
-      maxSize: 0.75,
-      backgroundColor: Colors.green,
-      snapList: [0.0, 0.25, 0.5],
-      draggableAreaHeight: 75.0,
-      draggableAreaColor: Colors.grey,
-      draggableAreaIndicatorColor: Colors.grey,
-      draggableAreaIndicatorWidth : 50.0,
-      draggableAreaIndicatorHeight = 3.0,
-      draggableAreaIndicatorRadius = 4.0,
-      ),
-    child: Text(
-       'Lorem ipsum dolor sit amet.'
-    ),
-  ),
-);
+        resizeToAvoidBottomInset: false,
+        bottomSheet: const Scaffold(
+          bottomSheet: InteractiveBottomSheet(
+            options: InteractiveBottomSheetOptions(
+              maxSize: 0.75,
+              backgroundColor: Colors.green,
+              snapList: [0.0, 0.25, 0.5],
+              draggableAreaOptions: DraggableAreaOptions(
+                topBorderRadius: 10,
+                height: 75,
+                backgroundColor: Colors.grey,
+                indicatorColor: Colors.grey,
+                indicatorWidth: 50,
+                indicatorHeight: 50,
+                indicatorRadius: 10,
+              ),
+            ),
+            child: Text('Lorem ipsum dolor sit amet.'),
+          ),
+        );
 ```
 
 ## Top Border Radius
