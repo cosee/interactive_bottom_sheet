@@ -1,3 +1,7 @@
+## 0.1.3
+
+* Migrate to Dart 3
+
 ## 0.1.2
 
 * Update README 
