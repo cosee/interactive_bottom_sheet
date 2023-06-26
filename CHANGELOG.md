@@ -1,3 +1,7 @@
+## 0.1.4
+
+* Add minimumSize assertion
+
 ## 0.1.3
 
 * Migrate to Dart 3

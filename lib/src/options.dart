@@ -9,8 +9,12 @@ class InteractiveBottomSheetOptions {
     this.snap = true,
     this.maxSize = 1,
     this.initialSize = 0.25,
+    this.minimumSize = 0.25,
     this.snapList = const [0.5],
-  });
+  }) : assert(
+          minimumSize <= initialSize,
+          'MinimumSize must be smaller than or equal to initialSize.',
+        );
 
   /// The background color of the whole widget.
   final Color backgroundColor;
@@ -24,10 +28,16 @@ class InteractiveBottomSheetOptions {
   final bool expand;
 
   /// The initial height of the bottom sheet, goes from 0.0 to 1.0.
+  /// Note that using values under 0.1 might create problems
+  /// dragging the widget at all.
   final double initialSize;
 
   /// The maximum height of the bottom sheet.
   final double maxSize;
+
+  /// The minimum height of the bottom sheet. The minimumSize must be smaller
+  /// than or equal to initialSize.
+  final double minimumSize;
 
   /// If snap is true, the bottom sheets snaps to the nearest point declared
   /// in this list when the user stops dragging.
