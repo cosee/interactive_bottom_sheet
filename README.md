@@ -23,7 +23,7 @@ Depend on it:
 
 ```yaml
 dependencies:
-  interactive_bottom_sheet: ^0.1.4
+  interactive_bottom_sheet: ^0.1.5
  ```
 
 Import it:

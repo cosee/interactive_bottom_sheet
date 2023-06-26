@@ -21,9 +21,6 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         bottomSheet: InteractiveBottomSheet(
           draggableAreaOptions: const DraggableAreaOptions(topBorderRadius: 10),
-          options: InteractiveBottomSheetOptions(
-            initialSize: 0.1,
-          ),
           child: Padding(
             padding: const EdgeInsets.all(15),
             child: Text(

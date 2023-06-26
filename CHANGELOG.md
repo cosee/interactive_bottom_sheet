@@ -1,3 +1,7 @@
+## 0.1.5
+
+* Fix example
+
 ## 0.1.4
 
 * Add minimumSize assertion
