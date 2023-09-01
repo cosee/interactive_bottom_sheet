@@ -13,7 +13,7 @@ dependencies:
   interactive_bottom_sheet:
     path: ../
   flutter_lorem: ^2.0.0
-  flutter_map: ^3.1.0
+  flutter_map: ^5.0.0
   latlong2: ^0.8.1
 
 dev_dependencies:
