@@ -12,7 +12,7 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  static final LatLng _position = LatLng(49.866903671198635, 8.627595429347092);
+  static const LatLng _position = LatLng(49.866903671198635, 8.627595429347092);
 
   @override
   Widget build(BuildContext context) {

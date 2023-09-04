@@ -13,14 +13,13 @@ dependencies:
   interactive_bottom_sheet:
     path: ../
   flutter_lorem: ^2.0.0
-  flutter_map: ^3.1.0
-  latlong2: ^0.8.1
+  flutter_map: ^5.0.0
+  latlong2: ^0.9.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   cosee_lints: ^0.2.0
-  dart_code_metrics: ^5.7.6
 
 flutter:
   uses-material-design: true
