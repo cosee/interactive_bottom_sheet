@@ -14,7 +14,7 @@ dependencies:
     path: ../
   flutter_lorem: ^2.0.0
   flutter_map: ^5.0.0
-  latlong2: ^0.8.1
+  latlong2: ^0.9.0
 
 dev_dependencies:
   flutter_test:
