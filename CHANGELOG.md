@@ -1,3 +1,7 @@
+## 1.0.0
+
+* Stable release.
+
 ## 0.1.5
 
 * Fix example
@@ -12,7 +16,7 @@
 
 ## 0.1.2
 
-* Update README 
+* Update README
 * Refactor code
 
 ## 0.1.1
