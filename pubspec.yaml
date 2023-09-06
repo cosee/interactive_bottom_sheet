@@ -7,6 +7,8 @@ issue_tracker: https://github.com/cosee/interactive_bottom_sheet/issues
 screenshots:
   - description: 'Default appearance of InteractiveBottomSheet'
     path: example/screenshots/example.jpeg
+topics:
+  - bottom-sheet
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
