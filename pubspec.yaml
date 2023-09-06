@@ -4,6 +4,9 @@ homepage: https://pub.dev/publishers/cosee.biz/packages
 version: 0.1.5
 repository: https://github.com/cosee/interactive_bottom_sheet/tree/main
 issue_tracker: https://github.com/cosee/interactive_bottom_sheet/issues
+screenshots:
+  - description: 'Default appearance of InteractiveBottomSheet'
+    path: example/screenshots/example.jpeg
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
