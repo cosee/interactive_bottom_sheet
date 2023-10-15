@@ -35,22 +35,22 @@ class MyApp extends StatelessWidget {
         ),
         body: SafeArea(
           child: FlutterMap(
-            options: MapOptions(
-              zoom: 18,
-              center: _position,
+            options: const MapOptions(
+              initialZoom: 18,
+              initialCenter: _position,
             ),
             children: [
               TileLayer(
                 urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
                 userAgentPackageName: 'com.example.app',
               ),
-              MarkerLayer(
+              const MarkerLayer(
                 markers: [
                   Marker(
                     point: _position,
                     height: 10,
                     width: 10,
-                    builder: (_) => const Icon(
+                    child: Icon(
                       Icons.place,
                       color: Colors.red,
                     ),
