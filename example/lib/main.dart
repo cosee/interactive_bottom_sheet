@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
                     point: _position,
                     height: 10,
                     width: 10,
-                    child:  Icon(
+                    child: Icon(
                       Icons.place,
                       color: Colors.red,
                     ),
