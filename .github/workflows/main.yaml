@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Cache asdf
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         id: asdf_cache
         with:
           path: ~/.asdf/
@@ -16,7 +16,7 @@ jobs:
       - uses: asdf-vm/actions/install@v3
 
       - name: Cache flutter dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         id: flutter_cache
         with:
           path: .dart_tool/
@@ -36,7 +36,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Cache asdf
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         id: asdf_cache
         with:
           path: ~/.asdf/
@@ -48,7 +48,7 @@ jobs:
           sudo apt update
           sudo apt install webp
       - name: Cache flutter dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         id: flutter_cache
         with:
           path: |
