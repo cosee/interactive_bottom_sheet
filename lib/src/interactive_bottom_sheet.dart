@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:interactive_bottom_sheet/src/indicator_widget.dart';
 import 'package:interactive_bottom_sheet/src/options.dart';
 
 /// The InteractiveBottomSheet.
@@ -112,9 +113,7 @@ class _InteractiveBottomSheetDraggableArea extends StatelessWidget {
   final DraggableAreaOptions options;
 
   @override
-  Widget build(
-    BuildContext context,
-  ) {
+  Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         color: options.backgroundColor,
@@ -124,20 +123,17 @@ class _InteractiveBottomSheetDraggableArea extends StatelessWidget {
         boxShadow: options.shadows,
       ),
       height: options.height,
-      child: Center(
-        child: Container(
-          height: options.indicatorHeight,
-          width: options.indicatorWidth,
-          decoration: BoxDecoration(
-            color: options.indicatorColor,
-            borderRadius: BorderRadius.all(
-              Radius.circular(
-                options.indicatorRadius,
-              ),
-            ),
-          ),
-        ),
-      ),
+      child: options.title != null
+          ? Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 16),
+                  child: IndicatorWidget(options: options),
+                ),
+                options.title!,
+              ],
+            )
+          : IndicatorWidget(options: options),
     );
   }
 

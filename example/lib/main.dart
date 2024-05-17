@@ -20,15 +20,27 @@ class MyApp extends StatelessWidget {
       theme: CustomTheme.theme(context),
       home: Scaffold(
         bottomSheet: InteractiveBottomSheet(
-          draggableAreaOptions: const DraggableAreaOptions(topBorderRadius: 10),
-          child: Padding(
-            padding: const EdgeInsets.all(15),
-            child: Text(
-              lorem(paragraphs: 4, words: 2000),
-              style: const TextStyle(fontSize: 20),
+            draggableAreaOptions: DraggableAreaOptions(
+              // title: ListTile(
+              //   leading: Text('Halo'),
+              //   trailing: Icon(Icons.ac_unit),
+              // ),
             ),
-          ),
-        ),
+            options: InteractiveBottomSheetOptions(
+              snapList: [0.5, 1],
+              minimumSize: 0.1,
+              maxSize: 1,
+            ),
+            child: ListView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: 5,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text('Item $index'),
+                    subtitle: Text(lorem(paragraphs: 1, words: 24)),
+                  );
+                })),
         appBar: AppBar(
           automaticallyImplyLeading: false,
           title: const Text('Interactive Bottom Sheet Example'),
