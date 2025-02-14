@@ -74,31 +74,23 @@ class _InteractiveBottomSheetState extends State<InteractiveBottomSheet> {
         maxChildSize: widget.options.maxSize,
         snapSizes: widget.options.snapList,
         controller: _controller,
-        builder: (context, scrollController) {
-          return Stack(
-            children: [
-              Container(
-                padding: EdgeInsets.only(
-                  top: widget.draggableAreaOptions.height,
-                ),
-                child: CustomScrollView(
-                  slivers: [
-                    SliverToBoxAdapter(
-                      child: widget.child,
-                    ),
-                  ],
-                ),
+        builder: (context, scrollController) => Stack(
+          children: [
+            Container(
+              padding: EdgeInsets.only(
+                top: widget.draggableAreaOptions.height,
               ),
-              SingleChildScrollView(
-                physics: const ClampingScrollPhysics(),
-                controller: scrollController,
-                child: _InteractiveBottomSheetDraggableArea(
-                  options: widget.draggableAreaOptions,
-                ),
+              child: widget.child,
+            ),
+            SingleChildScrollView(
+              physics: const ClampingScrollPhysics(),
+              controller: scrollController,
+              child: _InteractiveBottomSheetDraggableArea(
+                options: widget.draggableAreaOptions,
               ),
-            ],
-          );
-        },
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -1,7 +1,7 @@
 name: interactive_bottom_sheet
 description: A customizable interactive bottom sheet, which lets you interact with the screen behind it.
 homepage: https://pub.dev/publishers/cosee.biz/packages
-version: 1.0.0
+version: 1.1.0
 repository: https://github.com/cosee/interactive_bottom_sheet/tree/main
 issue_tracker: https://github.com/cosee/interactive_bottom_sheet/issues
 screenshots:

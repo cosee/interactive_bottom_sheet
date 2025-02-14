@@ -21,12 +21,14 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         bottomSheet: InteractiveBottomSheet(
           draggableAreaOptions: const DraggableAreaOptions(topBorderRadius: 10),
-          child: Padding(
+          child: ListView(
             padding: const EdgeInsets.all(15),
-            child: Text(
-              lorem(paragraphs: 4, words: 2000),
-              style: const TextStyle(fontSize: 20),
-            ),
+            children: [
+              Text(
+                lorem(paragraphs: 4, words: 2000),
+                style: const TextStyle(fontSize: 20),
+              ),
+            ],
           ),
         ),
         appBar: AppBar(
