@@ -1,3 +1,8 @@
+## 1.1.0
+
+* *BREAKING*: Changed handling of scrolling for further customization.
+  * To achieve the same behaviour as before, wrap your child widget with a ScrollView. 
+
 ## 1.0.0
 
 * Stable release.
