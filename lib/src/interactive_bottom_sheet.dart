@@ -11,6 +11,7 @@ class InteractiveBottomSheet extends StatefulWidget {
     this.options = const InteractiveBottomSheetOptions(),
     this.draggableAreaOptions = const DraggableAreaOptions(),
     this.child,
+    this.footer,
   });
 
   /// Customization options for the [InteractiveBottomSheet].
@@ -21,6 +22,9 @@ class InteractiveBottomSheet extends StatefulWidget {
 
   /// Optional Widget placed inside the [InteractiveBottomSheet].
   final Widget? child;
+
+  /// Optional Widget placed at the bottom of the [InteractiveBottomSheet].
+  final Widget? footer;
 
   @override
   State<InteractiveBottomSheet> createState() => _InteractiveBottomSheetState();
@@ -71,6 +75,7 @@ class _InteractiveBottomSheetState extends State<InteractiveBottomSheet> {
       child: DraggableScrollableSheet(
         expand: widget.options.expand,
         snap: widget.options.snap,
+        minChildSize: widget.options.minimumSize,
         initialChildSize: widget.options.initialSize,
         maxChildSize: widget.options.maxSize,
         snapSizes: widget.options.snapList,
@@ -81,7 +86,14 @@ class _InteractiveBottomSheetState extends State<InteractiveBottomSheet> {
               padding: EdgeInsets.only(
                 top: widget.draggableAreaOptions.height,
               ),
-              child: widget.child,
+              child: ListView(
+                shrinkWrap: true,
+                physics: const ClampingScrollPhysics(),
+                children: [
+                  if (widget.child != null) widget.child!,
+                  if (widget.footer != null) widget.footer!,
+                ],
+              ),
             ),
             SingleChildScrollView(
               physics: const ClampingScrollPhysics(),
@@ -118,10 +130,7 @@ class _InteractiveBottomSheetDraggableArea extends StatelessWidget {
       child: options.title != null
           ? Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 16),
-                  child: IndicatorWidget(options: options),
-                ),
+                IndicatorWidget(options: options),
                 options.title!,
               ],
             )

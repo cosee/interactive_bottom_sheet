@@ -55,6 +55,7 @@ class DraggableAreaOptions {
     double? indicatorWidth,
     double? indicatorHeight,
     double? indicatorRadius,
+    EdgeInsetsGeometry? indicatorPadding,
     List<BoxShadow>? shadows,
     this.title,
   })  : topBorderRadius = topBorderRadius ?? 10.0,
@@ -64,6 +65,8 @@ class DraggableAreaOptions {
         indicatorWidth = indicatorWidth ?? 40.0,
         indicatorHeight = indicatorHeight ?? 5.0,
         indicatorRadius = indicatorRadius ?? 5.0,
+        indicatorPadding =
+            indicatorPadding ?? const EdgeInsets.symmetric(vertical: 16),
         shadows = shadows ??
             const [
               BoxShadow(color: Colors.grey, blurRadius: 1),
@@ -93,6 +96,9 @@ class DraggableAreaOptions {
 
   /// Defines the shadow beneath the DraggableArea.
   final List<BoxShadow> shadows;
+
+  /// The padding of the Indicator.
+  final EdgeInsetsGeometry indicatorPadding;
 
   /// The builder for the DraggableArea.
   final Widget? title;

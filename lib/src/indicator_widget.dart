@@ -33,6 +33,7 @@ class IndicatorWidget extends StatelessWidget {
       child: Container(
         height: options.indicatorHeight,
         width: options.indicatorWidth,
+        margin: options.indicatorPadding,
         decoration: BoxDecoration(
           color: options.indicatorColor,
           borderRadius: BorderRadius.all(
