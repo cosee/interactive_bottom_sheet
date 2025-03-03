@@ -48,15 +48,29 @@ class InteractiveBottomSheetOptions {
 class DraggableAreaOptions {
   ///  Contains all options for customization of the DraggableArea.
   const DraggableAreaOptions({
-    this.topBorderRadius = 0.0,
-    this.height = 50.0,
-    this.backgroundColor = Colors.white,
-    this.indicatorColor = Colors.black,
-    this.indicatorWidth = 60.0,
-    this.indicatorHeight = 5.0,
-    this.indicatorRadius = 5.0,
-    this.shadows = const [BoxShadow(color: Colors.grey, blurRadius: 1)],
-  });
+    double? topBorderRadius,
+    double? height,
+    Color? backgroundColor,
+    Color? indicatorColor,
+    double? indicatorWidth,
+    double? indicatorHeight,
+    double? indicatorRadius,
+    EdgeInsetsGeometry? indicatorPadding,
+    List<BoxShadow>? shadows,
+    this.title,
+  })  : topBorderRadius = topBorderRadius ?? 10.0,
+        height = height ?? (title != null ? 80.0 : 50.0),
+        backgroundColor = backgroundColor ?? Colors.white,
+        indicatorColor = indicatorColor ?? Colors.black,
+        indicatorWidth = indicatorWidth ?? 40.0,
+        indicatorHeight = indicatorHeight ?? 5.0,
+        indicatorRadius = indicatorRadius ?? 5.0,
+        indicatorPadding =
+            indicatorPadding ?? const EdgeInsets.symmetric(vertical: 16),
+        shadows = shadows ??
+            const [
+              BoxShadow(color: Colors.grey, blurRadius: 1),
+            ];
 
   /// Top Radius of the bottom sheet. To see it, a transparent background color
   /// for the bottomSheetTheme is necessary.
@@ -82,4 +96,10 @@ class DraggableAreaOptions {
 
   /// Defines the shadow beneath the DraggableArea.
   final List<BoxShadow> shadows;
+
+  /// The padding of the Indicator.
+  final EdgeInsetsGeometry indicatorPadding;
+
+  /// The builder for the DraggableArea.
+  final Widget? title;
 }

@@ -20,7 +20,6 @@ class MyApp extends StatelessWidget {
       theme: CustomTheme.theme(context),
       home: Scaffold(
         bottomSheet: InteractiveBottomSheet(
-          draggableAreaOptions: const DraggableAreaOptions(topBorderRadius: 10),
           child: ListView(
             padding: const EdgeInsets.all(15),
             children: [

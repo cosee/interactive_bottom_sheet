@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:interactive_bottom_sheet/src/indicator_widget.dart';
 import 'package:interactive_bottom_sheet/src/options.dart';
 
 /// The InteractiveBottomSheet.
@@ -10,6 +11,7 @@ class InteractiveBottomSheet extends StatefulWidget {
     this.options = const InteractiveBottomSheetOptions(),
     this.draggableAreaOptions = const DraggableAreaOptions(),
     this.child,
+    this.footer,
   });
 
   /// Customization options for the [InteractiveBottomSheet].
@@ -20,6 +22,9 @@ class InteractiveBottomSheet extends StatefulWidget {
 
   /// Optional Widget placed inside the [InteractiveBottomSheet].
   final Widget? child;
+
+  /// Optional Widget placed at the bottom of the [InteractiveBottomSheet].
+  final Widget? footer;
 
   @override
   State<InteractiveBottomSheet> createState() => _InteractiveBottomSheetState();
@@ -70,6 +75,7 @@ class _InteractiveBottomSheetState extends State<InteractiveBottomSheet> {
       child: DraggableScrollableSheet(
         expand: widget.options.expand,
         snap: widget.options.snap,
+        minChildSize: widget.options.minimumSize,
         initialChildSize: widget.options.initialSize,
         maxChildSize: widget.options.maxSize,
         snapSizes: widget.options.snapList,
@@ -80,7 +86,14 @@ class _InteractiveBottomSheetState extends State<InteractiveBottomSheet> {
               padding: EdgeInsets.only(
                 top: widget.draggableAreaOptions.height,
               ),
-              child: widget.child,
+              child: ListView(
+                shrinkWrap: true,
+                physics: const ClampingScrollPhysics(),
+                children: [
+                  if (widget.child != null) widget.child!,
+                  if (widget.footer != null) widget.footer!,
+                ],
+              ),
             ),
             SingleChildScrollView(
               physics: const ClampingScrollPhysics(),
@@ -104,9 +117,7 @@ class _InteractiveBottomSheetDraggableArea extends StatelessWidget {
   final DraggableAreaOptions options;
 
   @override
-  Widget build(
-    BuildContext context,
-  ) {
+  Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         color: options.backgroundColor,
@@ -116,20 +127,14 @@ class _InteractiveBottomSheetDraggableArea extends StatelessWidget {
         boxShadow: options.shadows,
       ),
       height: options.height,
-      child: Center(
-        child: Container(
-          height: options.indicatorHeight,
-          width: options.indicatorWidth,
-          decoration: BoxDecoration(
-            color: options.indicatorColor,
-            borderRadius: BorderRadius.all(
-              Radius.circular(
-                options.indicatorRadius,
-              ),
-            ),
-          ),
-        ),
-      ),
+      child: options.title != null
+          ? Column(
+              children: [
+                IndicatorWidget(options: options),
+                options.title!,
+              ],
+            )
+          : IndicatorWidget(options: options),
     );
   }
 
