@@ -136,7 +136,8 @@ class _InteractiveBottomSheetDraggableArea extends StatelessWidget {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties
-        .add(DiagnosticsProperty<DraggableAreaOptions>('options', options));
+    properties.add(
+      DiagnosticsProperty<DraggableAreaOptions>('options', options),
+    );
   }
 }

@@ -12,9 +12,9 @@ class InteractiveBottomSheetOptions {
     this.minimumSize = 0.25,
     this.snapList = const [0.5],
   }) : assert(
-          minimumSize <= initialSize,
-          'MinimumSize must be smaller than or equal to initialSize.',
-        );
+         minimumSize <= initialSize,
+         'MinimumSize must be smaller than or equal to initialSize.',
+       );
 
   /// The background color of the whole widget.
   final Color backgroundColor;
