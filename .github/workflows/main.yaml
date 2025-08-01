@@ -1,6 +1,6 @@
 name: interactive_bottom_sheet
 
-on: [ push ]
+on: [ push, pull_request ]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
