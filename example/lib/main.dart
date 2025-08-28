@@ -44,7 +44,8 @@ class MyApp extends StatelessWidget {
             children: [
               TileLayer(
                 urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-                userAgentPackageName: 'com.example.app',
+                userAgentPackageName:
+                    'biz.cosee.interactive_bottom_sheet_example',
               ),
               const MarkerLayer(
                 markers: [
