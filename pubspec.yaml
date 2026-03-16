@@ -6,7 +6,7 @@ repository: https://github.com/cosee/interactive_bottom_sheet/tree/main
 issue_tracker: https://github.com/cosee/interactive_bottom_sheet/issues
 screenshots:
   - description: 'Default appearance of InteractiveBottomSheet'
-    path: example/screenshots/example.jpeg
+    path: example/screenshots/example.webp
 topics:
   - bottom-sheet
 
