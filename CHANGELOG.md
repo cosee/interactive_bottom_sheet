@@ -1,3 +1,8 @@
+## 1.1.1
+
+* Lower dart constraint to 3.0.0
+* Lower flutter constraint to 3.16.0
+
 ## 1.1.0
 
 * *BREAKING*: Changed handling of scrolling for further customization.
